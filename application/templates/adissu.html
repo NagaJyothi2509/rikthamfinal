@@ -1,0 +1,75 @@
+[13:29, 26/11/2022] 🖤: {% extends 'base.html' %}
+
+{% block head %}
+    <title>About Us</title>
+{% endblock%}
+{% block body %}
+    <div class="container">
+    </br>
+        <div class="jumbotron">
+            <h1>About Us</h1>
+            <p> This is Veera Deepthi Sai. I am studying in Sree Vidyanikethan Engineering College in the stream of Computer Science. I built this application just to bring about a change in India and help people solving the problems. Special thanks to Riktam Technology for providing this opportunity</p>
+        </div>
+        <div class="jumbotron">
+            <h1>Contact Us</h1>
+            <p>Name: Veera Deepthi Sai</p>
+            <p>Contact No: +91-9493910911</p>
+            <p>Email: deepthisaiveera@gmail.com</p>
+            <p>Location: Tirupati - 517102</p>
+        </div>
+    </br>
+</div>{% endblock%}
+[13:34, 26/11/2022] 🖤: {% extends 'base.html' %}
+
+{% block head%}
+<title>Add Issue</title>
+{% endblock %}
+{% block body %}
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{category}}">
+                <p>
+                    <b>
+                    {{message}}
+                    </b>
+                </p>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div style="margin:auto;">
+        <h1 style="text-align: center;">Add Issue</h1>
+        <div class="jumbotron" style="min-width: 500px; min-height: 200px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 10px 10px 5px grey;
+        width: 200px;
+        padding: 20px;">
+            <form method="POST" action="/addissue" enctype="multipart/form-data">
+                <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" id="Title" required name="title" placeholder="Enter Title">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" required name="location" placeholder="Enter Location">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date </label>
+                    <input type="date" class="form-control" id="date" required name="date" placeholder="Enter Date ">
+                </div>
+                
+                <div class="form-group">
+                    <label for="Details">Details</label>
+                    <textarea class="form-control" id="Details" required name="details" placeholder="Enter Details"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="file"  id="image" required name="image" placeholder="Upload image" >
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
